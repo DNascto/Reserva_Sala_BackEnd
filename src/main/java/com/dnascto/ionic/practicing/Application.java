@@ -9,17 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
-import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
-
-@SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
+//@SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
+@SpringBootApplication
 public class Application implements CommandLineRunner {
 
 	@Autowired
-	private RoomRepository roomRepository;
-	@Autowired
-	private RoomRepositoryMongo roomRepositoryMongo;
+	private RoomRepository repository;
+
+//	@Autowired
+//	private RoomRepositoryMongo roomRepositoryMongo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -27,17 +26,15 @@ public class Application implements CommandLineRunner {
 
 	private static final Logger LOG = LoggerFactory.getLogger("dnascto");
 
-
-
 	@Override
-	public void run(String... args) {
-		roomRepository.save(new Room(1, "Sala 1", 15, true, false));
-		roomRepository.save(new Room(2, "Sala 2", 5, false, false));
+	public void run(String... args) throws Exception {
+		repository.save(new Room(1, "Sala 1", 15, true, false));
+		repository.save(new Room(2, "Sala 2", 5, false, false));
 
 		LOG.info("Getting all data from MongoDB: \n{}",
-				roomRepository.findAll());
-		LOG.info("Getting by ID data from MongoDB: \n{}",
-				roomRepository.findById("1"));
+				repository.findAll());
+//		LOG.info("Getting by ID data from MongoDB: \n{}",
+//				repository.findById("1"));
 
 	}
 }

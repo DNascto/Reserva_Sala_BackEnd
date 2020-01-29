@@ -2,7 +2,7 @@ package com.dnascto.ionic.practicing.dao;
 
 import com.dnascto.ionic.practicing.model.Room;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
+//import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class RoomRepositoryImpl {
     @Autowired
     private RoomRepository roomRepository;
 
-    public Optional<Room> findById(int id){
-        return roomRepository.findById(String.valueOf(id));
+    public Room findById(int id){
+        return roomRepository.getOne(String.valueOf(id));
     }
 
     public List<Room> getAllRoom(){
