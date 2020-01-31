@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class RoomRepositoryImpl {
@@ -19,6 +18,9 @@ public class RoomRepositoryImpl {
 
     public List<Room> getAllRoom(){
         return roomRepository.findAll();
+    }
+    public List<Room> getAllFreeRoom(){
+        return roomRepository.findNoBookedRooms();
     }
 
     public Room addRoom(Room room){

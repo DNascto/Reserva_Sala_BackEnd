@@ -3,15 +3,12 @@ package com.dnascto.ionic.practicing.controller;
 import com.dnascto.ionic.practicing.model.Room;
 import com.dnascto.ionic.practicing.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+@CrossOrigin(origins = "http://localhost:8100")
 public class RoomController {
     @Autowired
     private RoomService service;
@@ -28,13 +25,18 @@ public class RoomController {
     }
 
     @GetMapping("/rooms")
-    public List<Room> getAllRooms(){
+    public List<Room> getAllFreeRooms(){
+        return service.getAllFreeRoom();
+    }
+
+    @GetMapping("/all")
+    public List<Room> getAllRooms() {
         return service.getAllRoom();
     }
 
-//    @PostMapping("/room")
-//    public Room postNewRoom(@RequestBody Room room){
-//        return service.newRoom(room);
-//    }
+    @PostMapping("/room")
+    public Room postNewRoom(@RequestBody Room room){
+        return service.newRoom(room);
+    }
 
 }
