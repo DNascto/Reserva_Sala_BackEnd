@@ -3,6 +3,7 @@ package com.dnascto.ionic.practicing.controller;
 import com.dnascto.ionic.practicing.model.Room;
 import com.dnascto.ionic.practicing.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,13 +26,18 @@ public class RoomController {
     }
 
     @GetMapping("/rooms")
-    public List<Room> getAllFreeRooms(){
-        return service.getAllFreeRoom();
+    public ResponseEntity<List<Room>> getAllFreeRooms(){
+        return ResponseEntity.ok(service.getAllFreeRoom());
     }
 
     @GetMapping("/all")
-    public List<Room> getAllRooms() {
-        return service.getAllRoom();
+    public ResponseEntity<List<Room>> getAllRooms() {
+        return ResponseEntity.ok(service.getAllRoom());
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> getCountRooms(@RequestParam Boolean booked) {
+        return ResponseEntity.ok(service.getCountRoom(booked));
     }
 
     @PostMapping("/room")

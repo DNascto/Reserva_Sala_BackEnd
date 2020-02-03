@@ -42,10 +42,13 @@ public class Application implements CommandLineRunner {
                         new Room(3, "Sala 3", 45, true, false),
                         new Room(4, "Sala 4", 10, false, false)
                 });
-        roomRepository.save(roomList.get(0));
-        roomRepository.save(roomList.get(1));
-        roomRepository.save(roomList.get(2));
-        roomRepository.save(roomList.get(3));
+//        roomRepository.save(roomList.get(0));
+//        roomRepository.save(roomList.get(1));
+//        roomRepository.save(roomList.get(2));
+//        roomRepository.save(roomList.get(3));
+        for (int i = 0; i < 50; i++) {
+            roomRepository.save(new Room(i, "Sala "+i, 10, false, false));
+        }
 
         bookingRepository.save(new Booking(1, LocalDateTime.of(2019, 1, 1, 12, 0),
 				roomList.get(0), 2, "Bill Zuck"));
@@ -53,7 +56,7 @@ public class Application implements CommandLineRunner {
 				roomList.get(1), 1, "Mark Jobs"));
         bookingRepository.save(new Booking(3, LocalDateTime.of(2020, 1, 6, 12, 0),
 				roomList.get(2), 5, "Steve Gates"));
-//        bookingRepository.save(new Booking(4, LocalDateTime.now(), roomList.get(3), 5, "Linux Mouse"));
+        bookingRepository.save(new Booking(4, LocalDateTime.now(), roomList.get(3), 5, "Linux Mouse"));
 
 //		LOG.info("Getting all data from MongoDB: \n{}",
 //				repository.findAll());

@@ -19,8 +19,13 @@ public class RoomRepositoryImpl {
     public List<Room> getAllRoom(){
         return roomRepository.findAll();
     }
+
     public List<Room> getAllFreeRoom(){
         return roomRepository.findNoBookedRooms();
+    }
+
+    public Long getCountBookedRoom(Boolean booked){
+        return roomRepository.countByBooked(booked);
     }
 
     public Room addRoom(Room room){

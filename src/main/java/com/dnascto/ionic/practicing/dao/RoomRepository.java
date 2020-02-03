@@ -16,6 +16,9 @@ public interface RoomRepository extends JpaRepository<Room, String> {
     @Query("SELECT r FROM Room r WHERE r.name = :name")
     List<Room> findByName(@Param("name") String name);
 
-    @Query("SELECT r FROM Room r WHERE r.booked = true")
+    @Query("SELECT COUNT(r) FROM Room r WHERE r.booked = :book")
+    Long countByBooked(@Param("book") Boolean booked);
+
+    @Query("SELECT r FROM Room r WHERE r.booked = false")
     List<Room> findNoBookedRooms();
 }

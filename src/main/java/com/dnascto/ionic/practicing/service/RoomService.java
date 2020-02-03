@@ -25,6 +25,10 @@ public class RoomService {
         return roomRepositoryImpl.getAllFreeRoom();
     }
 
+    public Long getCountRoom(Boolean booked){
+        return roomRepositoryImpl.getCountBookedRoom(booked);
+    }
+
     public Room newRoom(Room room){
         return roomRepositoryImpl.addRoom(room);
     }
