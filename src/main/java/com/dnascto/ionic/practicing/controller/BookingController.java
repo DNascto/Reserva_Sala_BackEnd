@@ -22,12 +22,12 @@ public class BookingController {
     }
 
     @GetMapping("/booking")
-    public ResponseEntity<Booking> getRoom(@RequestParam int id) {
+    public ResponseEntity<Booking> getBooking(@RequestParam int id) {
         return ResponseEntity.ok(service.findById(id));
     }
 
     @GetMapping("/bookings")
-    public ResponseEntity<List<Booking>> getAllRooms() {
+    public ResponseEntity<List<Booking>> getAllBookings() {
         return ResponseEntity.ok(service.getAllBooking());
     }
 

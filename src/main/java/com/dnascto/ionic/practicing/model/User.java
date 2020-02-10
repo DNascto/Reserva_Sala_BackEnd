@@ -20,6 +20,6 @@ public class User {
     private Integer id;
     private String name;
     private String password;
-    private Integer isAdmin; //gerencia, comum, presidente, admin
+    private Integer accessLevel; //gerencia, comum, presidente, admin
     private Boolean immediatlyApprovation;
 }

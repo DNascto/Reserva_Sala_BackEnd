@@ -19,13 +19,13 @@ import java.time.format.DateTimeFormatter;
 @Builder
 //@Document(collection = "booking")
 public class Booking {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column
     private LocalDateTime date;
 
-    @OneToOne (fetch = FetchType.EAGER)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name="room", referencedColumnName="id")
     private Room room;
 
