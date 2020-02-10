@@ -32,4 +32,8 @@ public class RoomRepositoryImpl {
         return roomRepository.save(room);
     }
 
+    public Room updateRoom(Room room){
+        return roomRepository.save(room);
+    }
+
 }

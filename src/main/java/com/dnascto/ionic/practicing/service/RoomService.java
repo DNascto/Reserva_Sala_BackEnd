@@ -33,4 +33,8 @@ public class RoomService {
         return roomRepositoryImpl.addRoom(room);
     }
 
+    public Room updateRoom(Room room){
+        return roomRepositoryImpl.updateRoom(room);
+    }
+
 }

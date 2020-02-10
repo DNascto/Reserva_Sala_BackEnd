@@ -3,7 +3,6 @@ package com.dnascto.ionic.practicing.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,13 +13,13 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Document(collection = "room")
-public class Room {
+//@Document(collection = "user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private Integer places;
-    private Boolean projector;
-    private Boolean booked;
+    private String password;
+    private Integer isAdmin; //gerencia, comum, presidente, admin
+    private Boolean immediatlyApprovation;
 }
