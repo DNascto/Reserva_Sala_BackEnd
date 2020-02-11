@@ -19,6 +19,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String nickname;
+    private String cpf;
     private String password;
     private Integer accessLevel; //gerencia, comum, presidente, admin
     private Boolean immediatlyApprovation;

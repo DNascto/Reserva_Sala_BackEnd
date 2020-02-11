@@ -2,8 +2,10 @@ package com.dnascto.ionic.practicing;
 
 import com.dnascto.ionic.practicing.dao.BookingRepository;
 import com.dnascto.ionic.practicing.dao.RoomRepository;
+import com.dnascto.ionic.practicing.dao.UserRepository;
 import com.dnascto.ionic.practicing.model.Booking;
 import com.dnascto.ionic.practicing.model.Room;
+import com.dnascto.ionic.practicing.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     private BookingRepository bookingRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
 //	@Autowired
 //	private RoomRepositoryMongo roomRepositoryMongo;
@@ -48,6 +53,6 @@ public class Application implements CommandLineRunner {
         }
 
         bookingRepository.save(new Booking(1, LocalDateTime.now(), roomList.get(3), 60, "Linux Mouse", false));
-
+        userRepository.save(new User(1, "Daniel Rodrigues", "d", "09876543211", "1", 4, true));
     }
 }
