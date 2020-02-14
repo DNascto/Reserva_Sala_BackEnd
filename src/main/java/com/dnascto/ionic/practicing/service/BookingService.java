@@ -11,13 +11,12 @@ import java.util.List;
 @Component
 public class BookingService {
     private BookingRepositoryImpl bookingRepository;
-
-    @Autowired
     private RoomService roomService;
 
     @Autowired
-    public BookingService(BookingRepositoryImpl bookingRepository) {
+    public BookingService(BookingRepositoryImpl bookingRepository, RoomService roomService) {
         this.bookingRepository = bookingRepository;
+        this.roomService = roomService;
     }
 
     public Booking findById(int id){
@@ -38,7 +37,6 @@ public class BookingService {
 
     public Booking newBooking(Booking booking){
         if(booking.getApproved()){
-//            Room room = roomService.getRoom(booking.getRoom().getId());
             booking.getRoom().setBooked(true);
             roomService.updateRoom(booking.getRoom());
         }
@@ -51,4 +49,7 @@ public class BookingService {
         return bookingRepository.updateBooking(booking);
     }
 
+    public void deleteBooking(Booking booking) {
+        bookingRepository.deleteBooking(booking);
+    }
 }

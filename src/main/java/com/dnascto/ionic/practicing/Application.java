@@ -48,11 +48,14 @@ public class Application implements CommandLineRunner {
                         new Room(3, "Sala 3", 45, true, false),
                         new Room(4, "Sala 4", 10, false, false)
                 });
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i <= 10; i++) {
             roomRepository.save(new Room(i, "Sala "+i, 10, false, false));
         }
 
         bookingRepository.save(new Booking(1, LocalDateTime.now(), roomList.get(3), 60, "Linux Mouse", false));
-        userRepository.save(new User(1, "Daniel Rodrigues", "d", "09876543211", "1", 4, true));
+//        userRepository.save(new User(1, "Daniel Rodrigues", "d","09876543211", "d","TCS", 4, true));
+//        userRepository.save(new User(3, "Daniel Nascimento", "n","09876543212", "n","TCS", 1, true));
+        userRepository.save(new User(1, "Daniel Rodrigues", "d","09876543211", "d",4, false));
+        userRepository.save(new User(3, "Daniel Nascimento", "a","09876543212", "a", 1, true));
     }
 }

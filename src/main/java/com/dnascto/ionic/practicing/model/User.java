@@ -22,6 +22,7 @@ public class User {
     private String nickname;
     private String cpf;
     private String password;
+//    private String group; //empresa a qual pertence
     private Integer accessLevel; //gerencia, comum, presidente, admin
     private Boolean immediatlyApprovation;
 }

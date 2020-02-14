@@ -46,4 +46,15 @@ public class BookingController {
         return ResponseEntity.ok(service.newBooking(new Booking(dtoBooking)));
     }
 
+    @PutMapping("/booking")
+    public ResponseEntity<Booking> putBooking(@RequestBody Booking booking) {
+        return ResponseEntity.ok(service.updateBooking(booking));
+    }
+
+    @DeleteMapping("/booking")
+    public ResponseEntity<Booking> deleteBooking(@RequestBody Booking booking) {
+        service.deleteBooking(booking);
+        return ResponseEntity.ok().build();
+    }
+
 }

@@ -37,4 +37,8 @@ public class BookingRepositoryImpl {
     public Booking updateBooking(Booking booking) {
         return bookingRepository.save(booking);
     }
+
+    public void deleteBooking(Booking booking) {
+        bookingRepository.delete(booking);
+    }
 }
